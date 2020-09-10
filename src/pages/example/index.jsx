@@ -24,7 +24,7 @@ const Example = (props) => {
 				<title>example</title>
 			</Helmet>
 			<div className={styles.container}>
-				<img src={props.example.randomImg} className='hairlines' onClick={handleChangeImg} />
+				<img src={props.example.randomImg} className={styles.ignoreImg} onClick={handleChangeImg} />
 
 				<Link to='/' className={styles.link}>
 					back Home
