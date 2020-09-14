@@ -3,7 +3,7 @@ export default {
     [
       '@umijs/preset-react',
       {
-        antd:true,
+				antd:true,
         dva: true,
       },
     ]
