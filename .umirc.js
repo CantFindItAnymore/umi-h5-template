@@ -1,10 +1,14 @@
-import postcssImport from 'postcss-import';
-import postcssUrl from 'postcss-url';
-import postcssAspectRatioMini from 'postcss-aspect-ratio-mini';
-import postcssWriteSvg from 'postcss-write-svg';
-import postcsscssnext from 'postcss-cssnext';
-import pxToViewPort from 'postcss-px-to-viewport';
-import cssnano from 'cssnano';
+import postcssImport from 'postcss-import'
+import postcssUrl from 'postcss-url'
+import postcssAspectRatioMini from 'postcss-aspect-ratio-mini'
+import postcssWriteSvg from 'postcss-write-svg'
+import postcsscssnext from 'postcss-cssnext'
+import pxToViewPort from 'postcss-px-to-viewport'
+import cssnano from 'cssnano'
+
+// gzip
+// const CompressionPlugin = require("compression-webpack-plugin");
+// const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 
 export default {
 	nodeModulesTransform: {
@@ -35,7 +39,7 @@ export default {
 			minPixelValue: 1, // 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值
 			mediaQuery: false, // 允许在媒体查询中转换`px`
 			replace: true, //是否直接更换属性值，而不添加备用属性
-			exclude: [/node_modules/], //忽略某些文件夹下的文件或特定文件，例如 'node_modules' 下的文件
+			exclude: /node_modules/, //忽略某些文件夹下的文件或特定文件，例如 'node_modules' 下的文件
 			landscape: false, //是否添加根据 landscapeWidth 生成的媒体查询条件 @media (orientation: landscape)
 			landscapeUnit: 'vw', //横屏时使用的单位
 			landscapeWidth: 1334, //横屏时使用的视口宽度
@@ -47,4 +51,19 @@ export default {
 			zindex: false,
 		}),
 	],
-};
+
+	// gzip
+	// chainWebpack(memo){
+	// 	memo.plugin('CompressionPlugin').use(new CompressionPlugin({
+	// 		filename: "[path].gz[query]",
+	// 		algorithm: "gzip",
+	// 		test: productionGzipExtensions,
+	// 		// 只处理大于xx字节 的文件，默认：0
+	// 		threshold: 10240,
+	// 		// 示例：一个1024b大小的文件，压缩后大小为768b，minRatio : 0.75
+	// 		minRatio: 0.8, // 默认: 0.8
+	// 		// 是否删除源文件，默认: false
+	// 		deleteOriginalAssets: false
+	// 	}));
+	// }
+}

@@ -1,22 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'dva';
-import { Helmet } from 'react-helmet';
-import styles from './index.less';
-import { Link } from 'umi';
-import { Button } from 'antd-mobile';
+import React, { useState, useEffect } from 'react'
+import { connect } from 'dva'
+import { Helmet } from 'react-helmet'
+import styles from './index.less'
+import { history } from 'umi'
+import { Button } from 'antd-mobile'
 
 const Example = props => {
-	const [refresh, setRefresh] = useState(false);
+	const [refresh, setRefresh] = useState(false)
 
 	useEffect(() => {
 		props.dispatch({
 			type: 'example/getRandomImg',
-		});
-	}, [refresh]);
+		})
+	}, [refresh])
 
 	const handleChangeImg = () => {
-		setRefresh(!refresh);
-	};
+		setRefresh(!refresh)
+	}
+
+	const handleToHome = () => {
+		history.push('/')
+	}
 
 	return (
 		<div>
@@ -30,16 +34,19 @@ const Example = props => {
 					onClick={handleChangeImg}
 				/>
 
-				<Link to="/" className={styles.link}>
-					<Button size='small' type="primary">
-						back Home
-					</Button>
-				</Link>
+				<Button
+					size="small"
+					type="primary"
+					className={styles.link}
+					onClick={handleToHome}
+				>
+					back Home
+				</Button>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 export default connect(({ example }) => ({
 	example,
-}))(Example);
+}))(Example)

@@ -34,13 +34,15 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
-    "umi": "^3.2.19",
+    "umi": "^3.2.20",
     "yorkie": "^2.0.0"
   },
   "devDependencies": {
+    "compression-webpack-plugin": "^6.0.0",
     "cssnano-preset-advanced": "^4.0.7",
     "postcss-import": "^12.0.1",
     "postcss-url": "^8.0.0",
+    "rc-form": "^2.4.11",
     "react-anime": "^3.0.3"
   }
 }
